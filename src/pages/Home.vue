@@ -2,16 +2,16 @@
   <div class="container mx-auto py-8 px-4">
     <div class="relative w-full max-w-4xl mx-auto mt-8">
       <!-- Carousel Wrapper -->
-      <div class="relative overflow-hidden rounded-lg shadow-lg h-64 md:h-96">
+      <div class="relative overflow-hidden rounded-lg shadow-lg h-72 md:h-96">
         <!-- Slides -->
         <div class="carousel flex transition-transform duration-700 ease-in-out" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
           <!-- Slide 1: Image -->
-          <div class="carousel-item w-full h-64 md:h-96">
-            <img :src="isMobile ? '/public/logo_tipografia_mobile.png' : '/public/logo_tipografia.png'" alt="San Semillero Banner" class="w-full h-full object-cover">
+          <div class="carousel-item w-full h-72 md:h-96">
+            <img src="/public/logo_tipografia_mobile.png" alt="San Semillero Banner" class="w-full h-full object-none">
           </div>
           <!-- Slide 2: Image with Text -->
-          <div class="carousel-item w-full h-64 md:h-96 relative">
-            <div class="absolute inset-0 bg-cover bg-center opacity-50" :style="{ backgroundImage: `url(${isMobile ? '/public/banner2.png' : '/public/banner2.png'})` }"></div>
+          <div class="carousel-item w-full h-72 md:h-96 relative">
+            <div class="absolute inset-0 bg-cover bg-center opacity-50" :style="{ backgroundImage: `url('/public/banner2.png')` }"></div>
             <div class="relative z-10 flex items-center justify-center h-full p-6 bg-black bg-opacity-50">
               <div class="text-center text-white">
                 <h1 class="text-lg md:text-4xl font-bold mb-4">San Semillero</h1>
@@ -92,21 +92,38 @@
     <section class="bg-gray-100 py-12 rounded-lg shadow-lg mb-12">
       <h2 class="text-2xl md:text-3xl font-extrabold mb-8 text-center text-gray-800">Próximos Partidos</h2>
       <ul class="divide-y divide-gray-200">
-        <li v-for="match in upcomingMatches" :key="match.id" class="p-6">
+        <li class="p-6">
           <div class="flex flex-col md:flex-row justify-between items-center">
-            <span class="text-lg font-semibold text-blue-600">{{ match.date }}</span>
+            <span class="text-lg font-semibold text-blue-600">10/08/2024 - 20:00</span>
             <div class="flex items-center justify-center flex-1">
               <div class="flex items-center mx-2">
-                <img :src="match.team1.logo" :alt="match.team1.name" class="w-12 h-12 mr-2">
-                <span class="font-bold italic">{{ match.team1.name }}</span>
+                <img src="/public/escudo_sl.jpg" alt="San Lorenzo de Almagro" class="w-12 h-12 mr-2">
+                <span class="font-bold italic">San Lorenzo de Almagro</span>
               </div>
               <div class="mx-4 text-center">vs</div>
               <div class="flex items-center mx-2">
-                <img :src="match.team2.logo" :alt="match.team2.name" class="w-12 h-12 mr-2">
-                <span class="font-bold italic">{{ match.team2.name }}</span>
+                <img src="/public/escudo_hr.png" alt="Huracan" class="w-12 h-12 mr-2">
+                <span class="font-bold italic">Huracan</span>
               </div>
             </div>
-            <span class="text-lg font-semibold text-green-600">{{ match.venue }}</span>
+            <span class="text-lg font-semibold text-green-600">Estadio Pedro Bidegain</span>
+          </div>
+        </li>
+        <li class="p-6">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <span class="text-lg font-semibold text-blue-600">15/08/2024 - 18:00</span>
+            <div class="flex items-center justify-center flex-1">
+              <div class="flex items-center mx-2">
+                <img src="/public/escudo_df.png" alt="Defensa y Justicia" class="w-12 h-12 mr-2">
+                <span class="font-bold italic">Defensa y Justicia</span>
+              </div>
+              <div class="mx-4 text-center">vs</div>
+              <div class="flex items-center mx-2">
+                <img src="/public/escudo_sl.jpg" alt="San Lorenzo de Almagro" class="w-12 h-12 mr-2">
+                <span class="font-bold italic">San Lorenzo de Almagro</span>
+              </div>
+            </div>
+            <span class="text-lg font-semibold text-green-600">Estadio Norberto Tomaghello</span>
           </div>
         </li>
       </ul>
@@ -146,7 +163,7 @@
         </form>
       </div>
       <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div v-if="windowWidth >= 700" class="grid grid-cols-7 gap-1">
+        <div v-if="!isMobile" class="grid grid-cols-7 gap-1">
           <div v-for="day in days" :key="day" class="py-2 text-center font-bold bg-gray-200 text-gray-800">{{ day }}</div>
           <div v-for="blank in startDay" :key="blank" class="py-2"></div>
           <div v-for="date in dates" :key="date" class="relative p-4 border border-gray-200">
