@@ -81,6 +81,7 @@
       </ul>
     </div>
     <main class="flex-grow container mx-auto p-4 md:p-8 bg-white shadow-lg rounded-lg">
+      <LoadingOverlay :isLoading="isLoading" />
       <router-view />
     </main>
     <footer class="flex justify-center items-center h-16 bg-gray-900 text-white">
@@ -96,11 +97,12 @@
 
 <script>
 import Home from './pages/Home.vue';
+import LoadingOverlay from './components/LoadingOverlay.vue';
 import { logout, subscribeToAuth } from './services/auth';
 
 export default {
   name: 'App',
-  components: { Home },
+  components: { Home, LoadingOverlay },
   data() {
     return {
       authUser: {
@@ -110,7 +112,8 @@ export default {
       notificationMessage: '',
       notificationClass: '',
       isMenuOpen: false,
-      isDesktop: window.innerWidth >= 1024
+      isDesktop: window.innerWidth >= 1024,
+      isLoading: false,
     };
   },
   methods: {
@@ -140,6 +143,16 @@ export default {
         this.isMenuOpen = false;
       }
     }
+  },
+  created() {
+    this.$router.beforeEach((to, from, next) => {
+      this.isLoading = true;
+      next();
+    });
+
+    this.$router.afterEach(() => {
+      this.isLoading = false;
+    });
   },
   mounted() {
     subscribeToAuth(newUserData => this.authUser = newUserData);
