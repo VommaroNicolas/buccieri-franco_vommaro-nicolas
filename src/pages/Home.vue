@@ -12,7 +12,7 @@
           <!-- Slide 2: Image with Text -->
           <div class="carousel-item w-full h-72 md:h-96 relative">
             <div class="absolute inset-0 bg-cover bg-center opacity-50">
-              <img src="/public/banner2.png" alt="banner san semillero">
+              <img src="/public/banner2.png" alt="banner san semillero" class="w-full h-full object-none" >
             </div>
             <div class="relative z-10 flex items-center justify-center h-full p-6 bg-black bg-opacity-50">
               <div class="text-center text-white">
