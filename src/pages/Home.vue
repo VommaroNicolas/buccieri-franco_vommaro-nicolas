@@ -11,8 +11,9 @@
           </div>
           <!-- Slide 2: Image with Text -->
           <div class="carousel-item w-full h-72 md:h-96 relative">
-            <div class="absolute inset-0 bg-cover bg-center opacity-50" :style="{ backgroundImage: `url('/public/banner2.png')` }"></div>
-            <img src="/public/logo_tipografia_mobile.png" alt="San Semillero Banner" class="w-full h-full object-none">
+            <div class="absolute inset-0 bg-cover bg-center opacity-50">
+              <img src="/public/banner2.png" alt="banner san semillero">
+            </div>
             <div class="relative z-10 flex items-center justify-center h-full p-6 bg-black bg-opacity-50">
               <div class="text-center text-white">
                 <h1 class="text-lg md:text-4xl font-bold mb-4">San Semillero</h1>
@@ -604,3 +605,4 @@ table tbody + tbody {
     align-items: center;
   }
 </style>
+|
