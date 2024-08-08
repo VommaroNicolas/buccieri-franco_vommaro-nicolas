@@ -1,17 +1,17 @@
 <template>
   <div class="container mx-auto py-8 px-4">
     <div class="relative w-full max-w-4xl mx-auto mt-8">
-      <!-- Carousel  -->
+      <!-- Carousel Wrapper -->
       <div class="relative overflow-hidden rounded-lg shadow-lg h-64 md:h-96">
         <!-- Slides -->
         <div class="carousel flex transition-transform duration-700 ease-in-out" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
-          <!-- Slide 1:  -->
+          <!-- Slide 1: Image -->
           <div class="carousel-item w-full h-64 md:h-96">
-            <img :src="currentImages[0]" alt="San Semillero Banner" class="w-full h-full object-cover">
+            <img :src="isMobile ? '/public/logo_tipografia_mobile.png' : '/public/logo_tipografia.png'" alt="San Semillero Banner" class="w-full h-full object-cover">
           </div>
-          <!-- Slide 2-->
+          <!-- Slide 2: Image with Text -->
           <div class="carousel-item w-full h-64 md:h-96 relative">
-            <div class="absolute inset-0 bg-cover bg-center opacity-50" :style="{ backgroundImage: `url(${currentImages[1]})` }"></div>
+            <div class="absolute inset-0 bg-cover bg-center opacity-50" :style="{ backgroundImage: `url(${isMobile ? '/public/banner2.png' : '/public/banner2.png'})` }"></div>
             <div class="relative z-10 flex items-center justify-center h-full p-6 bg-black bg-opacity-50">
               <div class="text-center text-white">
                 <h1 class="text-lg md:text-4xl font-bold mb-4">San Semillero</h1>
@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <!-- Botones-->
+      <!-- Navigation Buttons -->
       <button @click="prevSlide" class="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-white text-gray-700 rounded-full shadow-md hover:bg-gray-100">
         ‹
       </button>
@@ -39,7 +39,7 @@
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div class="bg-white rounded-lg shadow-lg overflow-hidden transition transform hover:-translate-y-2 hover:shadow-2xl">
-            <img src="/public/noticia1.jfif" alt="Noticia 1" class="w-full h-56 object-cover">
+            <img src="/public/noticia.jpg" alt="Noticia 1" class="w-full h-56 object-cover">
             <div class="p-6">
               <h3 class="text-xl md:text-2xl font-bold mb-4 text-blue-600">¡Excelentes noticias desde San Lorenzo de Almagro!</h3>
               <p class="text-xs md:text-sm text-gray-500 mb-2">Publicado el: 10/07/2024</p>
@@ -83,7 +83,7 @@
           Ver Jugadores de Reserva
         </button>
         <button @click="navigateToInfantiles" class="px-6 py-3 bg-gray-600 text-white font-semibold rounded-lg shadow-md hover:bg-gray-700 transition duration-300 focus:outline-none">
-          Ver Jugadores Infantilesssssssssssssssssssss
+          Ver Jugadores Infantiles
         </button>
       </div>
     </section>
@@ -308,19 +308,14 @@ export default {
     });
 
     const currentSlide = ref(0);
-    const images = {
-      desktop: ["/public/logo_tipografia.png", "/public/banner2.png"],
-      mobile: ["/public/logo_tipografia_mobile.png", "/public/banner2.png"]
-    };
-    const currentImages = ref(images.desktop);
-    const windowWidth = ref(window.innerWidth);
+    const isMobile = ref(window.innerWidth < 768);
 
     const prevSlide = () => {
-      currentSlide.value = (currentSlide.value - 1 + currentImages.value.length) % currentImages.value.length;
+      currentSlide.value = (currentSlide.value - 1 + 2) % 2;
     };
 
     const nextSlide = () => {
-      currentSlide.value = (currentSlide.value + 1) % currentImages.value.length;
+      currentSlide.value = (currentSlide.value + 1) % 2;
     };
 
     const leagueTable = [
@@ -379,17 +374,16 @@ export default {
     });
 
     watchEffect(() => {
-      const updateImages = () => {
-        currentImages.value = window.innerWidth < 768 ? images.mobile : images.desktop;
-        windowWidth.value = window.innerWidth;
+      const updateIsMobile = () => {
+        isMobile.value = window.innerWidth < 768;
       };
 
-      updateImages(); // Initial check
-      window.addEventListener('resize', updateImages);
-      
+      updateIsMobile(); // Initial check
+      window.addEventListener('resize', updateIsMobile);
+
       // Cleanup listener on component unmount
       return () => {
-        window.removeEventListener('resize', updateImages);
+        window.removeEventListener('resize', updateIsMobile);
       };
     });
 
@@ -401,7 +395,7 @@ export default {
       dates,
       events,
       currentSlide,
-      currentImages,
+      isMobile,
       prevSlide,
       nextSlide,
       leagueTable,
@@ -425,7 +419,6 @@ export default {
       showEventForm,
       newEvent,
       addEvent,
-      windowWidth,
       currentDay,
       currentDate,
       prevDay,
