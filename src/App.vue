@@ -84,7 +84,7 @@
       <router-view />
     </main>
     <footer class="flex justify-center items-center h-16 bg-gray-900 text-white">
-      <p>&copy; Da Vinci 2024. Todos los derechos reservados.</p>
+      <p>&copy; SanSemillero 2024. Todos los derechos reservados.</p>
     </footer>
 
     <!-- Notificación -->
