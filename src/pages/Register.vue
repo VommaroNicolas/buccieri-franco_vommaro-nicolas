@@ -122,12 +122,12 @@ export default {
       this.notificationClass = '';
       try {
         await register(this.user.email, this.user.password, this.user.name);
-        this.notificationMessage = 'Cuenta creada exitosamente';
+        this.notificationMessage = `Datos correctos, bienvenido ${this.user.email}!`;
         this.notificationClass = 'bg-green-500';
         this.$router.push({ path: '/perfil' });
       } catch (error) {
         if (error.code === 'auth/email-already-in-use') {
-          this.notificationMessage = 'El email ya está en uso';
+          this.notificationMessage = 'El email ya está en uso. Por favor, usa otro correo.';
         } else if (error.code === 'auth/invalid-email') {
           this.notificationMessage = 'Email no válido';
         } else if (error.code === 'auth/weak-password') {

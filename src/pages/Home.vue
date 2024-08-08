@@ -12,7 +12,7 @@
           <!-- Slide 2: Image with Text -->
           <div class="carousel-item w-full h-72 md:h-96 relative">
             <div class="absolute inset-0 bg-cover bg-center opacity-50">
-              <img src="/public/banner2.png" alt="banner san semillero" class="w-full h-full object-none" >
+              <img src="/public/banner2.png" alt="banner san semillero" class="w-full h-full object-none">
             </div>
             <div class="relative z-10 flex items-center justify-center h-full p-6 bg-black bg-opacity-50">
               <div class="text-center text-white">
@@ -418,22 +418,6 @@ export default {
       prevSlide,
       nextSlide,
       leagueTable,
-      upcomingMatches: [
-        {
-          id: 1,
-          date: '10/08/2024 - 20:00',
-          team1: { name: 'San Lorenzo de Almagro', logo: '/public/escudo_sl.jpg' },
-          team2: { name: 'Huracan', logo: '/public/escudo_hr.png' },
-          venue: 'Estadio Pedro Bidegain'
-        },
-        {
-          id: 2,
-          date: '15/08/2024 - 18:00',
-          team1: { name: 'Defensa y Justicia', logo: '/public/escudo_df.png' },
-          team2: { name: 'San Lorenzo de Almagro', logo: '/public/escudo_sl.jpg' },
-          venue: 'Estadio Norberto Tomaghello'
-        }
-      ],
       isAdmin,
       showEventForm,
       newEvent,
@@ -605,4 +589,3 @@ table tbody + tbody {
     align-items: center;
   }
 </style>
-|

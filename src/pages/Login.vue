@@ -100,7 +100,7 @@ export default {
       this.notificationClass = '';
       try {
         await login(this.user.email, this.user.password);
-        this.notificationMessage = 'Inicio de sesión exitoso';
+        this.notificationMessage = `Datos correctos, bienvenido ${this.user.email}!`;
         this.notificationClass = 'bg-green-500';
         this.$router.push({ path: '/perfil' });
       } catch (error) {
@@ -137,5 +137,47 @@ export default {
 
 .focus\:ring-2:focus {
   box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5);
+}
+
+.fixed {
+  position: fixed;
+}
+
+.top-4 {
+  top: 1rem;
+}
+
+.right-4 {
+  right: 1rem;
+}
+
+.text-white {
+  color: white;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.bg-green-500 {
+  background-color: #48bb78;
+}
+
+.bg-red-500 {
+  background-color: #f56565;
 }
 </style>
