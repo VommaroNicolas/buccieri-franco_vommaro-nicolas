@@ -84,10 +84,30 @@
       <LoadingOverlay :isLoading="isLoading" />
       <router-view />
     </main>
-    <footer class="flex justify-center items-center h-16 bg-gray-900 text-white">
-      <p>&copy; SanSemillero 2024. Todos los derechos reservados.</p>
+    <footer class="bg-gray-900 text-white py-6">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <img src="/logo_tipografia_nv.png" alt="Logo" class="w-40">
+          </div>
+          <div class="flex space-x-6">
+            <router-link class="hover:underline" to="/">Inicio</router-link>
+            <router-link class="hover:underline" to="/chat">Canal</router-link>
+            <router-link class="hover:underline" to="/infantiles">Infantiles</router-link>
+            <router-link class="hover:underline" to="/reserva">Reserva</router-link>
+            <router-link class="hover:underline" to="/perfil">Mi Perfil</router-link>
+          </div>
+        </div>
+        <div class="flex justify-center mt-4 space-x-6">
+          <a href="https://facebook.com" target="_blank" class="hover:underline">Facebook</a>
+          <a href="https://twitter.com" target="_blank" class="hover:underline">Twitter</a>
+          <a href="https://instagram.com" target="_blank" class="hover:underline">Instagram</a>
+        </div>
+        <div class="text-center mt-4">
+          <p>&copy; SanSemillero 2024. Todos los derechos reservados.</p>
+        </div>
+      </div>
     </footer>
-
     <!-- Notificación -->
     <div v-if="notificationMessage" :class="notificationClass" class="fixed top-4 right-4 text-white py-2 px-4 rounded shadow-lg">
       {{ notificationMessage }}

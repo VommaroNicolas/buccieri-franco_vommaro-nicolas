@@ -1,38 +1,18 @@
 <template>
   <div class="container mx-auto py-8 px-4">
-    <div class="relative w-full max-w-4xl mx-auto mt-8">
-      <!-- Carousel Wrapper -->
-      <div class="relative overflow-hidden rounded-lg shadow-lg h-72 md:h-96">
-        <!-- Slides -->
-        <div class="carousel flex transition-transform duration-700 ease-in-out" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
-          <!-- Slide 1: Image -->
-          <div class="carousel-item w-full h-72 md:h-96">
-            <img src="/public/logo_tipografia_mobile.png" alt="San Semillero Banner" class="w-full h-full object-none">
-          </div>
-          <!-- Slide 2: Image with Text -->
-          <div class="carousel-item w-full h-72 md:h-96 relative">
-            <div class="absolute inset-0 bg-cover bg-center opacity-50">
-              <img src="/public/banner2.png" alt="banner san semillero" class="w-full h-full object-none">
-            </div>
-            <div class="relative z-10 flex items-center justify-center h-full p-6 bg-black bg-opacity-50">
-              <div class="text-center text-white">
-                <h1 class="text-lg md:text-4xl font-bold mb-4">San Semillero</h1>
-                <p class="text-sm md:text-lg">Donde los futuros cracks de San Lorenzo nacen y crecen. ¡Aquí, el talento juvenil se transforma en leyendas azulgranas!</p>
-              </div>
-            </div>
-          </div>
+    <!-- Banner principal -->
+    <section class="relative w-full max-w-4xl mx-auto mt-8 h-72 md:h-96 rounded-lg shadow-lg overflow-hidden">
+      <img src="/public/banner2.png" alt="San Semillero Banner" class="absolute inset-0 w-full h-full object-cover opacity-50">
+      <div class="relative z-10 flex items-center justify-center h-full p-6 bg-black bg-opacity-50">
+        <div class="text-center text-white">
+          <h1 class="text-lg md:text-4xl font-bold mb-4">San Semillero</h1>
+          <p class="text-sm md:text-lg">Donde los futuros cracks de San Lorenzo nacen y crecen. ¡Aquí, el talento juvenil se transforma en leyendas azulgranas!</p>
+          <router-link to="iniciar-sesion" class="mt-6 inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700 transition duration-300">Empeza ahora</router-link>
         </div>
       </div>
+    </section>
 
-      <!-- Navigation Buttons -->
-      <button @click="prevSlide" class="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-white text-gray-700 rounded-full shadow-md hover:bg-gray-100">
-        ‹
-      </button>
-      <button @click="nextSlide" class="absolute top-1/2 right-0 transform -translate-y-1/2 p-2 bg-white text-gray-700 rounded-full shadow-md hover:bg-gray-100">
-        ›
-      </button>
-    </div>
-
+    <!-- Resto del contenido de Home.vue -->
     <section class="bg-gray-50 py-12 rounded-lg shadow-lg mb-12">
       <div class="container mx-auto px-4">
         <h2 class="text-2xl md:text-4xl font-extrabold mb-6 text-center text-gray-800">Noticias y Actualidad</h2>
@@ -537,55 +517,18 @@ table thead th {
 table tbody + tbody {
   border-top: 2px solid #dee2e6;
 }
-.carousel {
-  display: flex;
-  transition: transform 0.5s ease;
-}
 
-.carousel-item {
-  min-width: 100%;
-  transition: opacity 0.5s ease;
-}
-
-.carousel-item.relative {
-  position: relative;
-}
-
-.carousel-item .bg-cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-}
-
-.carousel-item .text-overlay {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.carousel-item .text-overlay .text-center {
-  text-align: center;
-  color: white;
-}
 .flex-1 {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .flex-2 {
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-2 {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 </style>
