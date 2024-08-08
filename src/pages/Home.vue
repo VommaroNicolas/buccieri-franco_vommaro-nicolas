@@ -83,7 +83,7 @@
           Ver Jugadores de Reserva
         </button>
         <button @click="navigateToInfantiles" class="px-6 py-3 bg-gray-600 text-white font-semibold rounded-lg shadow-md hover:bg-gray-700 transition duration-300 focus:outline-none">
-          Ver Jugadores Infantiles
+          Ver Jugadores Infantilesssssssssssssssssssss
         </button>
       </div>
     </section>
