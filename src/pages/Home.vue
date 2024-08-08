@@ -309,8 +309,8 @@ export default {
 
     const currentSlide = ref(0);
     const images = {
-      desktop: ["/src/img/logo_tipografia.png", "/src/img/banner.png"],
-      mobile: ["/src/img/logo_tipografia_mobile.png", "/src/img/banner.png"]
+      desktop: ["/public/logo_tipografia.png", "/public/banner2.png"],
+      mobile: ["/public/logo_tipografia_mobile.png", "/public/banner2.png"]
     };
     const currentImages = ref(images.desktop);
     const windowWidth = ref(window.innerWidth);
