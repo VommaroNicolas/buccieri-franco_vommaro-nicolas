@@ -1,15 +1,15 @@
 <template>
   <div class="container mx-auto py-8 px-4">
     <div class="relative w-full max-w-4xl mx-auto mt-8">
-      <!-- Carousel Wrapper -->
+      <!-- Carousel  -->
       <div class="relative overflow-hidden rounded-lg shadow-lg h-64 md:h-96">
         <!-- Slides -->
         <div class="carousel flex transition-transform duration-700 ease-in-out" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
-          <!-- Slide 1: Image -->
+          <!-- Slide 1:  -->
           <div class="carousel-item w-full h-64 md:h-96">
             <img :src="currentImages[0]" alt="San Semillero Banner" class="w-full h-full object-cover">
           </div>
-          <!-- Slide 2: Image with Text -->
+          <!-- Slide 2-->
           <div class="carousel-item w-full h-64 md:h-96 relative">
             <div class="absolute inset-0 bg-cover bg-center opacity-50" :style="{ backgroundImage: `url(${currentImages[1]})` }"></div>
             <div class="relative z-10 flex items-center justify-center h-full p-6 bg-black bg-opacity-50">
@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <!-- Navigation Buttons -->
+      <!-- Botones-->
       <button @click="prevSlide" class="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-white text-gray-700 rounded-full shadow-md hover:bg-gray-100">
         ‹
       </button>
